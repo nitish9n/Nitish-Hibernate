@@ -6,7 +6,7 @@
   
   <dependencies>
   
-  <!-- Source: https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+  
 <!-- Source: https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
 <dependency>
     <groupId>org.hibernate.orm</groupId>

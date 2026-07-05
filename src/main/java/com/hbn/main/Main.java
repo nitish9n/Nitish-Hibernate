@@ -13,9 +13,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Employee e = new Employee(1, "Nitish", "Male", 56000);
+		Employee e = new Employee( "Khushi", "Female", 49000);
 	
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+		// hibernate.cfg.xml is the default file name(no need to mention it), otherwise we need to mention configuration file name
+//		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");   
+		
+		Configuration cfg = new Configuration().configure();   
 		
 		SessionFactory sf = cfg.buildSessionFactory();
 		

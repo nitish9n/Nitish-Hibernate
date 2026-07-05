@@ -4,12 +4,14 @@
 	
 	<hibernate-mapping>
 	
-	<class name="com.hbn.entity.Employee">
+	<class name="com.hbn.entity.Employee" table="emp">   <!--table="emp" is used to create table name as our wish -->
 	
-	<id name="id"></id>
-	<property name="name"></property>
-	<property name="gender"></property>
-	<property name="salary"></property>
+	<!--assign is a default generator that add NOT NULL & PRIMARY KEY constraint.
+	identity is also a generator used for auto increament-->
+	<id name="id"><generator class="identity"></generator> </id>
+	<property name="name" column="emp_name"> </property>   <!--column="emp_name" is used to create coulmn name as our wish -->
+	<property name="gender"> </property>
+	<property name="salary"> </property>
 	
 	</class>
 	

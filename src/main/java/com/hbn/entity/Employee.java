@@ -6,14 +6,13 @@ public class Employee {
 	private String name, gender;
 	private int salary;
 	
-//	public Employee() {
-//		super();
-//		// TODO Auto-generated constructor stub
-//	}
-
-	public Employee(int id, String name, String gender, int salary) {
+	public Employee() {
 		super();
-		this.id = id;
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee( String name, String gender, int salary) {
+		super();
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
