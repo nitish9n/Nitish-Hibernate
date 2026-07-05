@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.hbn.configuration.HibernateConfig;
 import com.hbn.entity.Employee;
 
 public class Main {
@@ -18,11 +19,10 @@ public class Main {
 		// hibernate.cfg.xml is the default file name(no need to mention it), otherwise we need to mention configuration file name
 //		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");   
 		
-		Configuration cfg = new Configuration().configure();   
 		
-		SessionFactory sf = cfg.buildSessionFactory();
 		
-		Session session = sf.openSession();
+		
+		Session session = HibernateConfig.getSessionFactory().openSession();
 		
 		Transaction tx = session.beginTransaction();
 	
@@ -34,3 +34,4 @@ public class Main {
 	}
 
 }
+//new Configuration().configure().buildSessionFactory();
