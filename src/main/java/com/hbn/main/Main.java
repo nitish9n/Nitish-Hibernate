@@ -21,8 +21,6 @@ public class Main {
 //		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");   
 		
 		
-		
-		
 		Session session = HibernateConfig.getSessionFactory().openSession();
 		
 		Transaction tx = session.beginTransaction();
