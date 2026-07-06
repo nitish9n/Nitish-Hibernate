@@ -17,8 +17,9 @@ public class Employee {
 	
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
+		
+		System.out.println(" No arg constructor");
+		}
 
 	public Employee( String name, String gender, int salary) {
 		super();
