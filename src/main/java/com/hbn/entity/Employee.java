@@ -5,12 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity // persistent entity
 public class Employee {
 	
 	// annotation based mapping
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id   // for primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)     
 	private int id;
 	private String name, gender;
 	private int salary;
