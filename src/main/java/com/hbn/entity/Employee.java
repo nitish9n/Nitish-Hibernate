@@ -18,7 +18,7 @@ public class Employee {
 	public Employee() {
 		super();
 		
-		System.out.println(" No arg constructor");
+//		System.out.println(" No arg constructor");
 		}
 
 	public Employee( String name, String gender, int salary) {
