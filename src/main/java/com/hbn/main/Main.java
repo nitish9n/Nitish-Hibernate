@@ -25,11 +25,21 @@ public class Main {
 		Transaction tx = session.beginTransaction();
 		
 		// to get all the records from Employee
-		Query q = session.createQuery("from Employee", Employee.class);
-		List l = q.list();
+//		Query q = session.createQuery("from Employee", Employee.class);
+//		List l = q.list();
 //		List l = q.getResultList(); // list() and getResultList() both work as same
-		System.out.println(l);
+//		System.out.println(l);
 		
+		// Partial records
+//		Query q = session.createQuery("SELECT gender FROM Employee ", String.class);
+//		List l = q.list();
+//		System.out.println(l);
+		
+		// WHERE
+		Query q = session.createQuery("FROM Employee WHERE id > 2", Employee.class);
+		List l = q.list();
+		System.out.println(l);
+				
 		// pagination
 //		Query q = session.createQuery("from Employee", Employee.class);
 //		q.setFirstResult(2);
