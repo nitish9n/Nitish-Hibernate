@@ -4,12 +4,24 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 
-@Entity // persistent entity
+// Named Query
+
+@NamedQuery(
+		name = "Employee.findIdById",
+		query = "FROM Employee WHERE id > :id"
+		)
+@NamedQuery(
+		name = "Employee.findIdByGender",
+		query = "FROM Employee WHERE gender = :gender"
+		)
+
+@Entity 
 public class Employee {
 	
-	// annotation based mapping
-	@Id   // for primary key
+	
+	@Id   
 	@GeneratedValue(strategy = GenerationType.IDENTITY)     
 	private int id;
 	private String name, gender;

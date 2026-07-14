@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.MutationQuery;
 import org.hibernate.query.Query;
+import org.hibernate.query.SelectionQuery;
 
 import com.hbn.configuration.HibernateConfig;
 import com.hbn.entity.Employee;
@@ -24,45 +25,22 @@ public class Main {
 		
 		Transaction tx = session.beginTransaction();
 		
-		// to get all the records from Employee
-		Query q = session.createQuery("from Employee", Employee.class);
-		List l = q.list();
-//		List l = q.getResultList(); // list() and getResultList() both work as same
+		Query q = session.createNamedQuery("Employee.findIdById", Employee.class);
+		
+		q.setParameter("id", 2);
+		List l = q.getResultList();
 		System.out.println(l);
 		
-		// pagination
-//		Query q = session.createQuery("from Employee", Employee.class);
-//		q.setFirstResult(2);
-//		q.setMaxResults(3);
-//		List l = q.list();
-//		System.out.println(l); 
+		System.out.println("--------------------------------------------------------------");
 		
-		// Update
-//		MutationQuery q = session.createMutationQuery("UPDATE Employee SET name = :n Where id = :i");
-//		q.setParameter("n", "Twinkle");
-//		q.setParameter("i", 4);
-//		q.executeUpdate();
-//		
-		//delete
-//		MutationQuery q = session.createMutationQuery("DELETE from Employee Where id = :i");
-//		q.setParameter("i", 7);
-//		q.executeUpdate();
+		Query q1 = session.createNamedQuery("Employee.findIdByGender", Employee.class);
+		q1.setParameter("gender", "female");
+		List l1 = q.getResultList();
+		System.out.println(l1);
 		
-		// aggregate methods
-//		Query q = session.createQuery("SELECT max(name) from Employee");
-//		List l = q.list();
-//		System.out.println(l);
 		
-		// insert data
-//		MutationQuery q = session.createMutationQuery("INSERT INTO Employee (id, name, gender, salary) VALUES (:i, :n, :g, :s)");
-//		q.setParameter("i", 7);
-//		q.setParameter("n", "Siksha");
-//		q.setParameter("g", "Female");
-//		q.setParameter("s", 25000);
-//		q.executeUpdate();
-//
-//		
-//		tx.commit();
+		
+		tx.commit();
 	
 		
 		

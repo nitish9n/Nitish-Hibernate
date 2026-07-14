@@ -12,12 +12,12 @@ import org.hibernate.cfg.Environment;
 
 public class HibernateConfig {
 	
-	// we will create a separate method for the sessionFactory
+
 	
 	 public static SessionFactory getSessionFactory() {
 		 
-		 // java based configuration
-		 Properties properties = new Properties();      //  Property is a legacy class of collection
+		 
+		 Properties properties = new Properties();      
 		 
 		 properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");    // it can be ignored, now useless
 		 properties.put(Environment.JAKARTA_JDBC_URL, "jdbc:mysql://localhost:3306/mydb");
