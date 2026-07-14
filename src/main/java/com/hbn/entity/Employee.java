@@ -5,17 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToOne;
 
-// Named Query
-
-@NamedQuery(
-		name = "Employee.findIdById",
-		query = "FROM Employee WHERE id > :id"
-		)
-@NamedQuery(
-		name = "Employee.findIdByGender",
-		query = "FROM Employee WHERE gender = :gender"
-		)
 
 @Entity 
 public class Employee {
@@ -27,17 +18,31 @@ public class Employee {
 	private String name, gender;
 	private int salary;
 	
+	
+	@OneToOne
+	private Address address;         // dependency
+	
 	public Employee() {
 		super();
 		
 //		System.out.println(" No arg constructor");
 		}
 
-	public Employee( String name, String gender, int salary) {
+	public Employee( String name, String gender, int salary, Address address) {
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
+		this.address = address;
+	}
+	
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public int getId() {
@@ -74,8 +79,11 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary + ", address="
+				+ address + "]";
 	}
+
+	
 	
 	
 
