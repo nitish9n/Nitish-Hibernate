@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -13,16 +14,19 @@ public class Address {
 	private int id;
 	private String city, state;
 	
+	@OneToOne(mappedBy = "address")  // address table does not have fk
+	private Employee employee;      // now mapping is bi-directional
 	
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Address( String city, String state) {
+	public Address( String city, String state, Employee employee) {
 		super();
 		this.city = city;
 		this.state = state;
+		this.employee = employee;
 	}
 	public int getId() {
 		return id;
@@ -42,6 +46,15 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
+	
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", city=" + city + ", state=" + state + "]";
