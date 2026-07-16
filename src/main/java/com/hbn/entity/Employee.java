@@ -1,5 +1,7 @@
 package com.hbn.entity;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 
@@ -20,33 +23,34 @@ public class Employee {
 	private String name, gender;
 	private int salary;
 	
-	
-	@OneToOne(cascade = CascadeType.ALL)  // cascade all operation
-//	@JoinColumn(name = "add_id")      // it will change foreign key name
-	private Address address;         // dependency
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Address> address;        
 	
 	public Employee() {
 		super();
 		
-//		System.out.println(" No arg constructor");
+	//System.out.println(" No arg constructor");
 		}
 
-	public Employee( String name, String gender, int salary, Address address) {
+	
+
+	public Employee(int id, String name, String gender, int salary, List<Address> address) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
 		this.address = address;
 	}
-	
 
-	public Address getAddress() {
+	public List<Address> getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
+
 
 	public int getId() {
 		return id;
@@ -86,8 +90,6 @@ public class Employee {
 				+ address + "]";
 	}
 
-	
-	
 	
 
 }

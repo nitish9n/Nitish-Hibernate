@@ -14,19 +14,15 @@ public class Address {
 	private int id;
 	private String city, state;
 	
-	@OneToOne(mappedBy = "address")  // address table does not have fk
-	private Employee employee;      // now mapping is bi-directional
 	
 	public Address() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Address( String city, String state, Employee employee) {
+	public Address( String city, String state) {
 		super();
 		this.city = city;
 		this.state = state;
-		this.employee = employee;
 	}
 	public int getId() {
 		return id;
@@ -47,13 +43,6 @@ public class Address {
 		this.state = state;
 	}
 	
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
 
 	@Override
 	public String toString() {
