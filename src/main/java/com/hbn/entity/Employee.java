@@ -28,7 +28,7 @@ public class Employee {
 	private String name, gender;
 	private int salary;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
 	private List<Address> address;        
 	
 	

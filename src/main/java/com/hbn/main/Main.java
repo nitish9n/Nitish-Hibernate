@@ -48,6 +48,10 @@ public class Main {
 		e1.setSalary(25000);
 		e1.setAddress(listOfAddress);
 		
+		a1.setEmployee(e1);
+		a2.setEmployee(e1);
+		a3.setEmployee(e1);
+		
 	
 		session.persist(e1);
 		
@@ -64,8 +68,12 @@ public class Main {
 		
 		saveRecord(session); 
 		
-		Employee e = session.find(Employee.class, 1);
-		System.out.println(e);
+//		Employee e = session.find(Employee.class, 1);
+//		System.out.println(e);
+		
+		Address a = session.find(Address.class, 2);
+		System.out.println(a);
+		System.out.println(a.getEmployee());
 		
 		
 					
