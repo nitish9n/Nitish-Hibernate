@@ -43,7 +43,7 @@ public class Main {
 		listOfAddress.add(a3);
 		
 		Employee e1 = new Employee();
-		e1.setName("Khushi");
+		e1.setName("Muskan");
 		e1.setGender("Female");
 		e1.setSalary(25000);
 		e1.setAddress(listOfAddress);
@@ -63,6 +63,10 @@ public class Main {
 		Transaction tx = session.beginTransaction();
 		
 		saveRecord(session); 
+		
+		Employee e = session.find(Employee.class, 1);
+		System.out.println(e);
+		
 		
 					
 		
